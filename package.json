@@ -1,0 +1,38 @@
+{
+  "name": "candy-finder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CANDY FINDER live DUELS and TRADES dashboard with Cloudflare Workers and Durable Objects.",
+  "packageManager": "npm@10.9.9",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 3000 --strictPort",
+    "dev:worker": "node scripts/dev-worker.mjs",
+    "build": "tsc -b --pretty false && vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "typecheck": "tsc -b --pretty false",
+    "test": "vitest run",
+    "test:integration": "node scripts/test-integration.mjs",
+    "test:all": "npm run typecheck && npm test && npm run test:integration",
+    "deploy": "npm run build && wrangler deploy",
+    "cf:types": "wrangler types"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "latest",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vitest": "^2.1.8",
+    "wrangler": "^4.0.0",
+    "ws": "^8.18.0"
+  }
+}
